@@ -1,6 +1,8 @@
 import React from "react";
 import "./TaskCard.css";
 import { createMachine } from "xstate";
+import { useMachine } from "@xstate/react";
+import CardFrontside from "./CardFrontside";
 
 const cardMachine = createMachine({
   id: "cardMachine",
@@ -22,27 +24,14 @@ const cardMachine = createMachine({
 });
 
 function TaskCard({ reward, task }) {
-  const cardColor = () => {
-    if (reward >= 10 && reward < 75) {
-      return "lowest-reward";
-    } else if (reward < 100) {
-      return "low-reward";
-    } else if (reward < 125) {
-      return "high-reward";
-    } else if (reward >= 125) {
-      return "highest-reward";
-    } else {
-      return "";
-    }
-  };
+  const [current, send] = useMachine(cardMachine);
 
   return (
-    <li className={`carditem ${cardColor()}`}>
-      <div className="carditem-reward-wrp">
-        <span className="carditem-reward">{reward}</span>
-      </div>
-      <p className="carditem-text">{task}</p>
-    </li>
+    <>
+      {current.matches("frontside") && (
+        <CardFrontside reward={reward} task={task} />
+      )}
+    </>
   );
 }
 
