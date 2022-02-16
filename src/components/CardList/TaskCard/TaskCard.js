@@ -1,5 +1,6 @@
 import React from "react";
 import "./TaskCard.css";
+import { createMachine } from "xstate";
 
 function TaskCard({ reward, task }) {
   const cardColor = () => {
