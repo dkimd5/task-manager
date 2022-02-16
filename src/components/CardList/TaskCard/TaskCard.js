@@ -1,5 +1,19 @@
 import React from "react";
 
+const cardColor = () => {
+  if (reward >= 10 && reward < 75) {
+    return "lowest-reward";
+  } else if (reward < 100) {
+    return "low-reward";
+  } else if (reward < 125) {
+    return "high-reward";
+  } else if (reward >= 125) {
+    return "highest-reward";
+  } else {
+    return "";
+  }
+};
+
 function TaskCard() {
   return (
     <li className={`carditem ${cardColor()}`}>
