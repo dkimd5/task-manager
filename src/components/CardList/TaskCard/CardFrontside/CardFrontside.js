@@ -17,12 +17,12 @@ function CardFrontside({ reward, task }) {
   };
 
   return (
-    <li className={`carditem ${cardColor()}`}>
-      <div className="carditem-reward-wrp">
-        <span className="carditem-reward">{reward}</span>
+    <div className={`frontside ${cardColor()}`}>
+      <div className="frontside-reward-wrp">
+        <span className="frontside-reward">{reward}</span>
       </div>
-      <p className="carditem-text">{task}</p>
-    </li>
+      <p className="frontside-text">{task}</p>
+    </div>
   );
 }
 

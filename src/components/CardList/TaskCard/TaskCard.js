@@ -3,6 +3,7 @@ import "./TaskCard.css";
 import { createMachine } from "xstate";
 import { useMachine } from "@xstate/react";
 import CardFrontside from "./CardFrontside";
+import CardBackside from "./CardBackside";
 
 const cardMachine = createMachine({
   id: "cardMachine",
@@ -27,11 +28,12 @@ function TaskCard({ reward, task }) {
   const [current, send] = useMachine(cardMachine);
 
   return (
-    <>
+    <li className="carditem">
       {current.matches("frontside") && (
         <CardFrontside reward={reward} task={task} />
       )}
-    </>
+      {current.matches("backside") && <CardBackside task={task} send={send} />}
+    </li>
   );
 }
 

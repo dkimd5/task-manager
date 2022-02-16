@@ -1,11 +1,11 @@
-.frontside {
+.frontside{
     position: relative;
     cursor: pointer;
     width: 100%;
     height: 100%;
  }
  
-.frontside-reward-wrp {
+.frontside-reward-wrp{
     position: absolute;
     top: 0;
     right: 0;
@@ -16,7 +16,7 @@
     background: #64060640;
 }
  
-.frontside-reward {
+.frontside-reward{
     vertical-align: middle;
     font-family: Roboto;
     font-size: 18px;
@@ -27,7 +27,7 @@
     color: #fff;
 }
  
-.frontside-text {
+.frontside-text{
     display: flex;
     align-items: flex-end;
     height: 100%;

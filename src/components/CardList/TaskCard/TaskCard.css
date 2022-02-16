@@ -14,4 +14,25 @@
     background-color: #ff467d;
  }
 
+ .carditem{
+    height: 240px;
+    width: 240px;
+    border-radius: 8px;
+    margin: 20px;
+    overflow: hidden;
+ }
+
+.frontside,
+.backside,
+.taskdone{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.backside,
+.taskdone{
+    background-color: #ffe8db;
+    transform: rotateY(180deg);
+}
  
