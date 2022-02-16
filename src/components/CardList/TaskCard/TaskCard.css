@@ -9,7 +9,58 @@
  .high-reward{
     background-color: #ff5f5f;
  }
- 
+
  .highest-reward{
     background-color: #ff467d;
  }
+
+ .carditem {
+    position: relative;
+    height: 240px;
+    width: 240px;
+    border-radius: 8px;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    margin: 20px;
+ }
+
+ .carditem-front {
+    padding: 0 20px 24px;
+    cursor: pointer;
+}
+ 
+.carditem-reward-wrp {
+     position: absolute;
+    top: 0;
+    right: 0;
+    height: 32px;
+    width: 47px;
+    border-radius: 0 8px;
+    text-align: center;
+    background: #64060640;
+}
+ 
+.carditem-reward {
+    vertical-align: middle;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 0em;
+    color: #fff;
+}
+ 
+.carditem-text {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    color: #fff;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0em;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./TaskCard.css";
 
 const cardColor = () => {
   if (reward >= 10 && reward < 75) {
