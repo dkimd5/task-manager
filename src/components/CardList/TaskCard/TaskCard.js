@@ -2,6 +2,25 @@ import React from "react";
 import "./TaskCard.css";
 import { createMachine } from "xstate";
 
+const cardMachine = createMachine({
+  id: "cardMachine",
+  initial: "frontside",
+  states: {
+    frontside: {
+      on: {
+        TOGGLE: "backside",
+      },
+    },
+    backside: {
+      on: {
+        FINISH_TASK: "taskcomplite",
+        BACK_TO_TASK: "frontside",
+      },
+    },
+    taskcomplite: {},
+  },
+});
+
 function TaskCard({ reward, task }) {
   const cardColor = () => {
     if (reward >= 10 && reward < 75) {
