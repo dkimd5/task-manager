@@ -1,7 +1,7 @@
 import React from "react";
 import "./CardFrontside.css";
 
-function CardFrontside({ reward, task }) {
+function CardFrontside({ reward, task, send, changeToggleClass }) {
   const cardColor = () => {
     if (reward >= 10 && reward < 75) {
       return "lowest-reward";
@@ -17,7 +17,13 @@ function CardFrontside({ reward, task }) {
   };
 
   return (
-    <div className={`frontside ${cardColor()}`}>
+    <div
+      className={`frontside ${cardColor()}`}
+      onClick={() => {
+        send("TOGGLE");
+        changeToggleClass();
+      }}
+    >
       <div className="frontside-reward-wrp">
         <span className="frontside-reward">{reward}</span>
       </div>

@@ -15,6 +15,7 @@
  }
 
  .carditem{
+    position: relative;
     height: 240px;
     width: 240px;
     border-radius: 8px;
@@ -33,6 +34,4 @@
 .backside,
 .taskdone{
     background-color: #ffe8db;
-    transform: rotateY(180deg);
 }
- 
