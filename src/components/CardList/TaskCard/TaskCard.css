@@ -1,37 +1,52 @@
 .lowest-reward{
-    background-color: #ffb966;
- }
+   background-color: #ffb966;
+}
 
- .low-reward{
-    background-color: #fe8368;
- }
+.low-reward{
+   background-color: #fe8368;
+}
 
- .high-reward{
-    background-color: #ff5f5f;
- }
+.high-reward{
+   background-color: #ff5f5f;
+}
 
- .highest-reward{
-    background-color: #ff467d;
- }
+.highest-reward{
+   background-color: #ff467d;
+}
 
- .carditem{
-    position: relative;
-    height: 240px;
-    width: 240px;
-    border-radius: 8px;
-    margin: 20px;
-    overflow: hidden;
- }
+.carditem{
+   position: relative;
+   height: 240px;
+   width: 240px;
+   border-radius: 8px;
+   margin: 20px;
+   overflow: hidden;
+   transition: transform 1s;
+   transform-style: preserve-3d;
+}
 
 .frontside,
 .backside,
 .taskdone{
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   box-sizing: border-box;
 }
 
 .backside,
 .taskdone{
-    background-color: #ffe8db;
+   background-color: #ffe8db;
+}
+
+.carditem.is-flipped{
+   transform: rotateY(180deg);
+}
+
+.frontside, .backside{
+   position: absolute;
+   /* backface-visibility: hidden; */
+}
+
+.backside{
+   transform: rotateY(180deg);
 }

@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
 .backside-text{
     margin: 20px 20px 0;
     text-transform: lowercase;
@@ -20,12 +21,11 @@
     text-transform: uppercase;
 }
  
-
 .backside-btn-wrp{
     margin: 0 29px 41px;
     display: flex;
     justify-content: space-between;
- }
+}
 
 .backside-btn{
     width: 64px;
@@ -34,7 +34,8 @@
     background: none;
     cursor: pointer;
     position: relative;
- }
+}
+
 .backside-btn-svg{
     fill: #555555;
 }
@@ -83,10 +84,10 @@
 .backside-btn:hover{
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23FF8933FF' stroke-width='2' stroke-dasharray='5' stroke-dashoffset='45' stroke-linecap='butt'/%3e%3c/svg%3e");
     border-radius: 100px;
- }
+}
 
 .backside-btn:hover > svg{
     fill: #ff8933;
- }
+}
 
 

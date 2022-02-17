@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import "./TaskCard.css";
 import { createMachine } from "xstate";
 import { useMachine } from "@xstate/react";
@@ -27,23 +27,26 @@ const cardMachine = createMachine({
 function TaskCard({ reward, task }) {
   const [current, send] = useMachine(cardMachine);
 
-  const [toggleClass, setToggleClass] = useState({ active: false });
+  const [isFlipped, setIsFlipped] = useState(false);
+  // const [toggleClass, setToggleClass] = useState({ active: false });
 
-  const changeToggleClass = () => {
-    setToggleClass({ active: !toggleClass.active });
-  };
+  // const changeToggleClass = () => {
+  //   setToggleClass({ active: !toggleClass.active });
+  // };
 
   return (
-    <li className={`carditem ${toggleClass.active ? "is-flipped" : null}`}>
+    <li className={`carditem ${isFlipped ? "is-flipped" : ""}`}>
       {current.matches("frontside") && (
         <CardFrontside
           reward={reward}
           task={task}
           send={send}
-          changeToggleClass={changeToggleClass}
+          setIsFlipped={setIsFlipped}
         />
       )}
-      {current.matches("backside") && <CardBackside task={task} send={send} />}
+      {current.matches("backside") && (
+        <CardBackside task={task} send={send} setIsFlipped={setIsFlipped} />
+      )}
     </li>
   );
 }
