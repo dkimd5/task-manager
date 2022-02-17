@@ -1,27 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import "./TaskCard.css";
+import { createMachine } from "xstate";
+import { useMachine } from "@xstate/react";
+import CardFrontside from "./CardFrontside";
+import CardBackside from "./CardBackside";
+import TaskCompleted from "./TaskCompleted";
+
+const cardMachine = createMachine({
+  id: "cardMachine",
+  initial: "frontside",
+  states: {
+    frontside: {
+      on: {
+        TOGGLE: "backside",
+      },
+    },
+    backside: {
+      on: {
+        FINISH_TASK: "taskcomplite",
+        BACK_TO_TASK: "frontside",
+      },
+    },
+    taskcomplite: {},
+  },
+});
 
 function TaskCard({ reward, task }) {
-  const cardColor = () => {
-    if (reward >= 10 && reward < 75) {
-      return "lowest-reward";
-    } else if (reward < 100) {
-      return "low-reward";
-    } else if (reward < 125) {
-      return "high-reward";
-    } else if (reward >= 125) {
-      return "highest-reward";
-    } else {
-      return "";
-    }
-  };
+  const [current, send] = useMachine(cardMachine);
+
+  const [isFlipped, setIsFlipped] = useState(false);
+  // const [toggleClass, setToggleClass] = useState({ active: false });
+
+  // const changeToggleClass = () => {
+  //   setToggleClass({ active: !toggleClass.active });
+  // };
 
   return (
-    <li className={`carditem ${cardColor()}`}>
-      <div className="carditem-reward-wrp">
-        <span className="carditem-reward">{reward}</span>
-      </div>
-      <p className="carditem-text">{task}</p>
+    <li className={`carditem ${isFlipped ? "is-flipped" : ""}`}>
+      {current.matches("frontside") && (
+        <CardFrontside
+          reward={reward}
+          task={task}
+          send={send}
+          setIsFlipped={setIsFlipped}
+        />
+      )}
+      {current.matches("backside") && (
+        <CardBackside task={task} send={send} setIsFlipped={setIsFlipped} />
+      )}
+      {current.matches("taskcomplite") && <TaskCompleted reward={reward} />}
     </li>
   );
 }

@@ -1,0 +1,93 @@
+.backside{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.backside-text{
+    margin: 20px 20px 0;
+    text-transform: lowercase;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 125%;
+    text-align: center;
+    color: #555555;
+}
+
+.backside-text::first-letter{
+    text-transform: uppercase;
+}
+ 
+.backside-btn-wrp{
+    margin: 0 29px 41px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.backside-btn{
+    width: 64px;
+    height: 64px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.backside-btn-svg{
+    fill: #555555;
+}
+
+.backside-btn-notdone::after{
+    content: "No, maybe later";
+    display: block;
+    position: absolute;
+    width: 83px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 100%;
+    text-align: center;
+    bottom: -21px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.backside-btn-notdone:hover::after{
+    color: #ff8933;
+}
+
+.backside-btn-done::after{
+    content: "Yes, I did!";
+    display: block;
+    position: absolute;
+    width: 83px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 100%;
+    text-align: center;
+    bottom: -21px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.backside-btn-done:hover::after{
+    color: #ff8933;
+}
+ 
+
+.backside-btn:hover{
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23FF8933FF' stroke-width='2' stroke-dasharray='5' stroke-dashoffset='45' stroke-linecap='butt'/%3e%3c/svg%3e");
+    border-radius: 100px;
+}
+
+.backside-btn:hover > svg{
+    fill: #ff8933;
+}
+
+

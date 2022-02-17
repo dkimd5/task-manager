@@ -1,60 +1,49 @@
 .lowest-reward{
-    background-color: #ffb966;
- }
-
- .low-reward{
-    background-color: #fe8368;
- }
-
- .high-reward{
-    background-color: #ff5f5f;
- }
-
- .highest-reward{
-    background-color: #ff467d;
- }
-
- .carditem {
-    position: relative;
-    height: 240px;
-    width: 240px;
-    border-radius: 8px;
-    position: relative;
-    margin: 20px;
- }
- 
-.carditem-reward-wrp {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 32px;
-    width: 47px;
-    border-radius: 0 8px;
-    text-align: center;
-    background: #64060640;
+   background-color: #ffb966;
 }
- 
-.carditem-reward {
-    vertical-align: middle;
-    font-family: Roboto;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 32px;
-    letter-spacing: 0em;
-    color: #fff;
+
+.low-reward{
+   background-color: #fe8368;
 }
- 
-.carditem-text {
-    display: flex;
-    align-items: flex-end;
-    height: 100%;
-    padding: 0 20px 24px;
-    color: #fff;
-    font-family: Roboto;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 23px;
-    letter-spacing: 0em;
+
+.high-reward{
+   background-color: #ff5f5f;
+}
+
+.highest-reward{
+   background-color: #ff467d;
+}
+
+.carditem{
+   position: relative;
+   height: 240px;
+   width: 240px;
+   border-radius: 8px;
+   margin: 20px;
+   overflow: hidden;
+   transition: transform 1s;
+   transform-style: preserve-3d;
+}
+
+.frontside,
+.backside,
+.cardcomplete{
+   width: 100%;
+   height: 100%;
+   box-sizing: border-box;
+}
+
+.backside,
+.cardcomplete{
+   background-color: #ffe8db;
+   transform: rotateY(180deg);
+}
+
+.carditem.is-flipped{
+   transform: rotateY(180deg);
+}
+
+.frontside, .backside{
+   position: absolute;
+   /* backface-visibility: hidden; */
 }
