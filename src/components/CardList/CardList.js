@@ -9,8 +9,8 @@ function CardList() {
 
   return (
     <ul className="cardslist">
-      {cards.map(({ id, reward, task }) => (
-        <TaskCard key={id} reward={reward} task={task} />
+      {cards.map(({ id, reward, text }) => (
+        <TaskCard key={id} reward={reward} task={text} />
       ))}
       <AddTask />
     </ul>

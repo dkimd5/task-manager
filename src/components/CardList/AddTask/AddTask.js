@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./AddTask.css";
 import { createMachine } from "xstate";
 import { useMachine } from "@xstate/react";
+import { projectFirestore } from "../../../firebase/config";
+import { collection, addDoc } from "firebase/firestore";
 
 const addTaskMachine = createMachine({
   id: "addTaskMahcine",
@@ -18,7 +20,6 @@ const addTaskMachine = createMachine({
         CREATE_TASK: "addtask",
       },
     },
-    // taskcreated: {},
   },
 });
 
@@ -33,6 +34,11 @@ function AddTask() {
 
   const handleChangeReward = (e) => {
     setReward(e.target.value);
+  };
+
+  const handleAddTask = (taskText, taskReward) => {
+    const collectionRef = collection(projectFirestore, "task-list");
+    addDoc(collectionRef, { text: taskText, reward: taskReward });
   };
 
   return (
@@ -67,7 +73,14 @@ function AddTask() {
             </form>
           </div>
           <button onClick={() => send("CANCEL")}>Cancel</button>
-          <button onClick={() => send("CREATE_TASK")}>Create</button>
+          <button
+            onClick={() => {
+              handleAddTask(text, reward);
+              send("CREATE_TASK");
+            }}
+          >
+            Create
+          </button>
         </li>
       )}
     </>
