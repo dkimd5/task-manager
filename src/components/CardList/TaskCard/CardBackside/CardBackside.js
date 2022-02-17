@@ -1,7 +1,16 @@
 import React from "react";
 import "./CardBackside.css";
+import { projectFirestore } from "../../../../firebase/config";
+import { doc, deleteDoc } from "firebase/firestore";
 
-function CardBackside({ task, send, setIsFlipped }) {
+function CardBackside({ task, send, setIsFlipped, collectionName, taskId }) {
+  const handleTaskDone = () => {
+    send("FINISH_TASK");
+    setTimeout(() => {
+      deleteDoc(doc(projectFirestore, collectionName, taskId));
+    }, 3000);
+  };
+
   return (
     <div className="backside">
       <p className="backside-text">did you {task}?</p>
@@ -28,7 +37,7 @@ function CardBackside({ task, send, setIsFlipped }) {
         <button
           className="backside-btn backside-btn-done"
           onClick={() => {
-            send("FINISH_TASK");
+            handleTaskDone();
           }}
         >
           <svg
