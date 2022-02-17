@@ -1,6 +1,7 @@
 import React from "react";
 import TaskCard from "./TaskCard";
 import "./CardList.css";
+import AddTask from "./AddTask";
 
 const initialCards = [
   { reward: 125, task: "Find dad's wallet" },
@@ -17,6 +18,7 @@ function CardList() {
       {initialCards.map((card, index) => (
         <TaskCard reward={card.reward} task={card.task} />
       ))}
+      <AddTask />
     </ul>
   );
 }
