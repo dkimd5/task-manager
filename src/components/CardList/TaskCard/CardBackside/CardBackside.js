@@ -1,7 +1,7 @@
 import React from "react";
 import "./CardBackside.css";
 
-function CardBackside({ task, send, isFlipped, setIsFlipped }) {
+function CardBackside({ task, send, setIsFlipped }) {
   return (
     <div className="backside">
       <p className="backside-text">did you {task}?</p>
@@ -27,7 +27,9 @@ function CardBackside({ task, send, isFlipped, setIsFlipped }) {
         </button>
         <button
           className="backside-btn backside-btn-done"
-          // onClick={handleTaskDone}
+          onClick={() => {
+            send("FINISH_TASK");
+          }}
         >
           <svg
             className="backside-btn-svg"

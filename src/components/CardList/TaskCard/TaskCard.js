@@ -4,6 +4,7 @@ import { createMachine } from "xstate";
 import { useMachine } from "@xstate/react";
 import CardFrontside from "./CardFrontside";
 import CardBackside from "./CardBackside";
+import TaskCompleted from "./TaskCompleted";
 
 const cardMachine = createMachine({
   id: "cardMachine",
@@ -47,6 +48,7 @@ function TaskCard({ reward, task }) {
       {current.matches("backside") && (
         <CardBackside task={task} send={send} setIsFlipped={setIsFlipped} />
       )}
+      {current.matches("taskcomplite") && <TaskCompleted />}
     </li>
   );
 }
