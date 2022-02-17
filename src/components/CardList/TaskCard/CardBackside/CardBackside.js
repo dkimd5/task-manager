@@ -5,7 +5,10 @@ import { doc, deleteDoc } from "firebase/firestore";
 
 function CardBackside({ task, send, setIsFlipped, collectionName, taskId }) {
   const handleTaskDone = () => {
-    deleteDoc(doc(projectFirestore, collectionName, taskId));
+    send("FINISH_TASK");
+    setTimeout(() => {
+      deleteDoc(doc(projectFirestore, collectionName, taskId));
+    }, 3000);
   };
 
   return (
@@ -34,7 +37,6 @@ function CardBackside({ task, send, setIsFlipped, collectionName, taskId }) {
         <button
           className="backside-btn backside-btn-done"
           onClick={() => {
-            send("FINISH_TASK");
             handleTaskDone();
           }}
         >
