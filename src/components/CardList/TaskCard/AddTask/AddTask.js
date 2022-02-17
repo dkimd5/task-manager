@@ -39,7 +39,7 @@ function AddTask() {
     <>
       {current.matches("addtask") && (
         <li
-          className="addtask"
+          className="addTask"
           onClick={() => {
             send("ADD_TASK");
           }}
