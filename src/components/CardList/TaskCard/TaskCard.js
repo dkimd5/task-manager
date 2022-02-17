@@ -48,7 +48,7 @@ function TaskCard({ reward, task }) {
       {current.matches("backside") && (
         <CardBackside task={task} send={send} setIsFlipped={setIsFlipped} />
       )}
-      {current.matches("taskcomplite") && <TaskCompleted />}
+      {current.matches("taskcomplite") && <TaskCompleted reward={reward} />}
     </li>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./TaskCompleted.css";
 
-function TaskCompleted() {
+function TaskCompleted({ reward }) {
   return (
     <div className="cardcomplete">
       <svg

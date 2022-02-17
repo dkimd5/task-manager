@@ -27,15 +27,16 @@
 
 .frontside,
 .backside,
-.taskdone{
+.cardcomplete{
    width: 100%;
    height: 100%;
    box-sizing: border-box;
 }
 
 .backside,
-.taskdone{
+.cardcomplete{
    background-color: #ffe8db;
+   transform: rotateY(180deg);
 }
 
 .carditem.is-flipped{
@@ -45,8 +46,4 @@
 .frontside, .backside{
    position: absolute;
    /* backface-visibility: hidden; */
-}
-
-.backside{
-   transform: rotateY(180deg);
 }
