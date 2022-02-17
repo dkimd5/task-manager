@@ -29,11 +29,6 @@ function TaskCard({ reward, task }) {
   const [current, send] = useMachine(cardMachine);
 
   const [isFlipped, setIsFlipped] = useState(false);
-  // const [toggleClass, setToggleClass] = useState({ active: false });
-
-  // const changeToggleClass = () => {
-  //   setToggleClass({ active: !toggleClass.active });
-  // };
 
   return (
     <li className={`carditem ${isFlipped ? "is-flipped" : ""}`}>

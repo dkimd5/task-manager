@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AddTask.css";
 import { createMachine } from "xstate";
 import { useMachine } from "@xstate/react";
 
 const addTaskMachine = createMachine({
   id: "addTaskMahcine",
-  initial: "addTask",
+  initial: "addtask",
   states: {
     addtask: {
       on: {
@@ -15,7 +15,7 @@ const addTaskMachine = createMachine({
     taskoptions: {
       on: {
         CANCEL: "addtask",
-        CREATE_TASK: "addTask",
+        CREATE_TASK: "addtask",
       },
     },
     // taskcreated: {},
