@@ -9,7 +9,7 @@ function CardList() {
   const { cards } = useFirestore(collectionName);
 
   return (
-    <ul className="cardslist">
+    <ul className="cardlist">
       {cards.map(({ id, reward, text }) => (
         <TaskCard
           key={id}
