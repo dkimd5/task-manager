@@ -4,6 +4,8 @@ import { projectFirestore } from "../../../../firebase/config";
 import { doc, deleteDoc } from "firebase/firestore";
 
 function CardBackside({ task, send, setIsFlipped, collectionName, taskId }) {
+  const moveToHistory = () => {};
+
   const handleTaskDone = () => {
     send("FINISH_TASK");
     setTimeout(() => {
