@@ -18,14 +18,8 @@ function CardList() {
 
   return (
     <ul className="cardlist">
-      {cards.map(({ id, reward, text }) => (
-        <TaskCard
-          key={id}
-          reward={reward}
-          task={text}
-          collectionName={collectionName}
-          taskId={id}
-        />
+      {cards.map((card) => (
+        <TaskCard key={card.id} card={card} />
       ))}
       <AddTask />
     </ul>

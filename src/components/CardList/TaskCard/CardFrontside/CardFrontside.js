@@ -1,7 +1,9 @@
 import React from "react";
 import "./CardFrontside.css";
 
-function CardFrontside({ reward, task, send, setIsFlipped }) {
+function CardFrontside({ card, send, setIsFlipped }) {
+  const { reward, task } = card;
+
   const cardColor = () => {
     if (reward >= 10 && reward < 75) {
       return "lowest-reward";

@@ -38,7 +38,7 @@ function AddTask() {
 
   const handleAddTask = (taskText, taskReward) => {
     const collectionRef = collection(projectFirestore, "task-list");
-    addDoc(collectionRef, { text: taskText, reward: taskReward });
+    addDoc(collectionRef, { task: taskText, reward: taskReward });
     setText("");
     setReward("");
   };
