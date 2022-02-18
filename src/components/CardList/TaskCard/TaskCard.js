@@ -42,6 +42,7 @@ function TaskCard({ reward, task, taskId, collectionName }) {
       )}
       {current.matches("backside") && (
         <CardBackside
+          reward={reward}
           task={task}
           send={send}
           setIsFlipped={setIsFlipped}
