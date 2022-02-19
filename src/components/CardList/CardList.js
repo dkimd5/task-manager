@@ -17,12 +17,16 @@ function CardList() {
   }, [id]);
 
   return (
-    <ul className="cardlist">
-      {cards.map((card) => (
-        <TaskCard key={card.id} card={card} />
-      ))}
-      <AddTask />
-    </ul>
+    <div>
+      {(id === undefined || id === "task-list") && (
+        <ul className="cardlist">
+          {cards.map((card) => (
+            <TaskCard key={card.id} card={card} />
+          ))}
+          <AddTask />
+        </ul>
+      )}
+    </div>
   );
 }
 
