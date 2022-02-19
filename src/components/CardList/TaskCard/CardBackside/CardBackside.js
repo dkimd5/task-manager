@@ -1,13 +1,29 @@
 import React from "react";
 import "./CardBackside.css";
-import { projectFirestore } from "../../../../firebase/config";
-import { doc, deleteDoc } from "firebase/firestore";
+import { projectFirestore, timestamp } from "../../../../firebase/config";
+import { doc, deleteDoc, collection, setDoc } from "firebase/firestore";
+import { TODAY } from "../../../../utils/variables";
+import nextId from "react-id-generator";
 
-function CardBackside({ task, send, setIsFlipped, collectionName, taskId }) {
+function CardBackside({ card, send, setIsFlipped }) {
+  const { task, reward, id: taskId } = card;
+
+  const moveToHistory = () => {
+    const collectionRef = collection(projectFirestore, "task-history");
+    const docRef = doc(collectionRef, TODAY);
+    let taskHistoryId = nextId();
+    setDoc(
+      docRef,
+      { [taskHistoryId]: { task, reward, timestamp } },
+      { merge: true }
+    );
+  };
+
   const handleTaskDone = () => {
     send("FINISH_TASK");
+    moveToHistory();
     setTimeout(() => {
-      deleteDoc(doc(projectFirestore, collectionName, taskId));
+      deleteDoc(doc(projectFirestore, "task-list", taskId));
     }, 3000);
   };
 

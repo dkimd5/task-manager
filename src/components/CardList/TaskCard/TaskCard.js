@@ -25,7 +25,7 @@ const cardMachine = createMachine({
   },
 });
 
-function TaskCard({ reward, task, taskId, collectionName }) {
+function TaskCard({ card }) {
   const [current, send] = useMachine(cardMachine);
 
   const [isFlipped, setIsFlipped] = useState(false);
@@ -33,23 +33,14 @@ function TaskCard({ reward, task, taskId, collectionName }) {
   return (
     <li className={`carditem ${isFlipped ? "is-flipped" : ""}`}>
       {current.matches("frontside") && (
-        <CardFrontside
-          reward={reward}
-          task={task}
-          send={send}
-          setIsFlipped={setIsFlipped}
-        />
+        <CardFrontside card={card} send={send} setIsFlipped={setIsFlipped} />
       )}
       {current.matches("backside") && (
-        <CardBackside
-          task={task}
-          send={send}
-          setIsFlipped={setIsFlipped}
-          collectionName={collectionName}
-          taskId={taskId}
-        />
+        <CardBackside card={card} send={send} setIsFlipped={setIsFlipped} />
       )}
-      {current.matches("taskcomplite") && <TaskCompleted reward={reward} />}
+      {current.matches("taskcomplite") && (
+        <TaskCompleted reward={card.reward} />
+      )}
     </li>
   );
 }
