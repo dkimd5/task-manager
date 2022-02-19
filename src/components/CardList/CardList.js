@@ -4,6 +4,7 @@ import "./CardList.css";
 import AddTask from "./AddTask";
 import useFirestore from "../../hooks/useFirestore";
 import { useParams } from "react-router";
+import TaskHistory from "../TaskHistory";
 
 function CardList() {
   const [collectionName, setCollectionName] = useState("task-list");
@@ -26,6 +27,7 @@ function CardList() {
           <AddTask />
         </ul>
       )}
+      {id === "task-history" && <TaskHistory cards={cards} />}
     </div>
   );
 }
