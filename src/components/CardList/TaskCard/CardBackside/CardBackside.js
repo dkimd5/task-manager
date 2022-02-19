@@ -14,7 +14,7 @@ function CardBackside({ card, send, setIsFlipped }) {
     let taskHistoryId = nextId();
     setDoc(
       docRef,
-      { [taskHistoryId]: { text: task, reward, timestamp } },
+      { [taskHistoryId]: { task, reward, timestamp } },
       { merge: true }
     );
   };
